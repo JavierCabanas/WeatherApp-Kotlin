@@ -21,10 +21,11 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:22.2.0'
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    compile "org.jetbrains.anko:anko:0.6.2-15s"
+    compile 'org.jetbrains.anko:anko:0.6.2-15s'
+    compile 'com.android.support:recyclerview-v7:22.2.0'
 }
 
 buildscript {
