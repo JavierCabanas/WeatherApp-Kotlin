@@ -1,0 +1,12 @@
+bin/
+gen/
+.gradle
+gradlew.bat
+gradlew
+local.properties
+*.iws
+.idea
+*.iml
+.DS_Store
+/build
+/captures
