@@ -26,6 +26,7 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     compile 'org.jetbrains.anko:anko:0.6.2-15s'
     compile 'com.android.support:recyclerview-v7:22.2.0'
+    compile 'com.google.code.gson:gson:2.3.1'
 }
 
 buildscript {
