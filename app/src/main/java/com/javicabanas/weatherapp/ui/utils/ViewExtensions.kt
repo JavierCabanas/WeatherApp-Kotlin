@@ -7,5 +7,5 @@ import android.view.View
  * Created by Javi on 13/09/2015.
  */
 
-public val View.ctx: Context
+val View.ctx: Context
     get() = getContext()

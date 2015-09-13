@@ -16,8 +16,7 @@ import org.jetbrains.anko.toast
 import org.jetbrains.anko.uiThread
 
 
-public class MainActivity : ActionBarActivity() {
-
+class MainActivity : ActionBarActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +31,6 @@ public class MainActivity : ActionBarActivity() {
                 forecastList.setAdapter(adapter)
             }
         }
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

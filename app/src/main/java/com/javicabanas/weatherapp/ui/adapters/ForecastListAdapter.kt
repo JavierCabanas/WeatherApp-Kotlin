@@ -21,9 +21,7 @@ class ForecastListAdapter(val weekForecast: ForecastList,
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):
             ForecastListAdapter.ViewHolder? {
-        val view = parent.ctx.layoutInflater.inflate(R.layout.item_forecast,
-                parent, false)
-
+        val view = parent.ctx.layoutInflater.inflate(R.layout.item_forecast, parent, false)
         return ViewHolder(view, itemClick)
     }
 
