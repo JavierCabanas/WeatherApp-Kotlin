@@ -1,6 +1,5 @@
 package com.javicabanas.weatherapp.ui.activities
 
-import android.app.DownloadManager
 import android.os.Bundle
 import android.support.v7.app.ActionBarActivity
 import android.support.v7.widget.LinearLayoutManager
@@ -8,17 +7,16 @@ import android.support.v7.widget.RecyclerView
 import android.view.Menu
 import android.view.MenuItem
 import com.javicabanas.weatherapp.R
-import com.javicabanas.weatherapp.data.ForecastRequest
 import com.javicabanas.weatherapp.domain.commands.RequestForecastCommand
+import com.javicabanas.weatherapp.domain.model.Forecast
 import com.javicabanas.weatherapp.ui.adapters.ForecastListAdapter
 import org.jetbrains.anko.async
 import org.jetbrains.anko.find
-import org.jetbrains.anko.longToast
+import org.jetbrains.anko.toast
 import org.jetbrains.anko.uiThread
 
 
 public class MainActivity : ActionBarActivity() {
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,10 +25,15 @@ public class MainActivity : ActionBarActivity() {
         val forecastList: RecyclerView = find(R.id.forecast_list)
         forecastList.setLayoutManager(LinearLayoutManager(this))
 
-        async{
-            val items= RequestForecastCommand("94043").execute()
+        async {
+            val result = RequestForecastCommand("94043").execute()
             uiThread {
-                forecastList.setAdapter(ForecastListAdapter(items))
+                forecastList.setAdapter(ForecastListAdapter(result,
+                        object : ForecastListAdapter.OnItemClickListener {
+                            override fun invoke(forecast: Forecast) {
+                                toast(forecast.date)
+                            }
+                        }))
             }
         }
 
