@@ -28,12 +28,8 @@ public class MainActivity : ActionBarActivity() {
         async {
             val result = RequestForecastCommand("94043").execute()
             uiThread {
-                forecastList.setAdapter(ForecastListAdapter(result,
-                        object : ForecastListAdapter.OnItemClickListener {
-                            override fun invoke(forecast: Forecast) {
-                                toast(forecast.date)
-                            }
-                        }))
+                val adapter= ForecastListAdapter(result, { toast(it.date)})
+                forecastList.setAdapter(adapter)
             }
         }
 
