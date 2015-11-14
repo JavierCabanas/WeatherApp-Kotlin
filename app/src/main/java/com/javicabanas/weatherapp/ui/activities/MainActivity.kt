@@ -19,13 +19,13 @@ class MainActivity : ActionBarActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        forecastList.setLayoutManager(LinearLayoutManager(this))
+        forecastList.layoutManager=LinearLayoutManager(this)
 
         async {
             val result = RequestForecastCommand("94043").execute()
             uiThread {
                 val adapter = ForecastListAdapter(result, { toast(it.date) })
-                forecastList.setAdapter(adapter)
+                forecastList.adapter=adapter
             }
         }
     }
