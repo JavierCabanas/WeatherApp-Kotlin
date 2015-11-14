@@ -2,8 +2,8 @@ package com.javicabanas.weatherapp.domain.mappers
 
 import com.javicabanas.weatherapp.data.Forecast
 import com.javicabanas.weatherapp.data.ForecastResult
-import com.javicabanas.weatherapp.domain.model
 import com.javicabanas.weatherapp.domain.model.ForecastList
+import com.javicabanas.weatherapp.domain.model.Forecast as ModelForecast
 import java.text.DateFormat
 import java.util.Locale
 
@@ -16,12 +16,12 @@ class ForecastDataMapper {
                 convertForecastListToDomain(forecast.list))
     }
 
-    private fun convertForecastListToDomain(list: List<Forecast>): List<model.Forecast> {
+    private fun convertForecastListToDomain(list: List<Forecast>): List<ModelForecast> {
         return list map { convertForecastItemToDomain(it) }
     }
 
-    private fun convertForecastItemToDomain(forecast: Forecast): model.Forecast {
-        return model.Forecast(convertDate(forecast.dt),
+    private fun convertForecastItemToDomain(forecast: Forecast): ModelForecast {
+        return ModelForecast(convertDate(forecast.dt),
                 forecast.weather[0].description, forecast.temp.max.toInt(),
                 forecast.temp.min.toInt(), generateIconUrl(forecast.weather[0].icon))
     }
